@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Accueil from "./common/pages/Acceuil";
+import Accueil from "./common/pages/Accueil";
 
 function App() {
   return (
