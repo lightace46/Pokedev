@@ -1,4 +1,4 @@
-const SectionElement = () => {
+const SectionType = () => {
   return (
     <section>
       <p>6 Element</p>
@@ -6,4 +6,4 @@ const SectionElement = () => {
   );
 };
 
-export default SectionElement;
+export default SectionType;
