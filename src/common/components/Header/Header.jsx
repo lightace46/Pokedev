@@ -13,6 +13,10 @@ const Header = () => {
   return (
     <header>
       <nav>
+        <img
+          width={"50px"}
+          src="https://i.pinimg.com/736x/32/eb/23/32eb230b326ee3c76e64f619a06f6ebb.jpg"
+        />
         <ul>
           <li>
             <Link to={"/"}>Accueil</Link>
