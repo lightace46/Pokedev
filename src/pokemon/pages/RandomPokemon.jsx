@@ -26,7 +26,13 @@ const RandomPokemon = () => {
   };
 
   if (isLoading) {
-    return <p>pokemon en chargement</p>;
+    return (
+      <>
+        <Header />
+        <p>En cours de chargement !</p>
+        <Footer />
+      </>
+    );
   }
 
   return (

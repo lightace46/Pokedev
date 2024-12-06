@@ -7,19 +7,28 @@ const ShowPokemon = () => {
   const { id } = useParams();
 
   const [pokemon, setPokemon] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://pokebuildapi.fr/api/v1/pokemon/")
+    fetch("https://pokebuildapi.fr/api/v1/pokemon/" + id)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        setPokemon(data[0]);
+        setPokemon(data);
+        setIsLoading(false);
+        console.log(data);
       });
-  });
+  }, []);
 
-  if (!pokemon) {
-    return <p>chargement recette</p>;
+  if (isLoading) {
+    return (
+      <>
+        <Header />
+        <p>En cours de chargement !</p>
+        <Footer />
+      </>
+    );
   }
 
   return (

@@ -1,5 +1,14 @@
+import Footer from "../../common/components/Footer";
+import Header from "../../common/components/Header";
+
 const FightPage = () => {
-  return <p>fight page</p>;
+  return (
+    <>
+      <Header />
+      <p>fight page</p>
+      <Footer />
+    </>
+  );
 };
 
 export default FightPage;

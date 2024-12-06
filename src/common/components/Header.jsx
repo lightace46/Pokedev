@@ -16,6 +16,21 @@ const Header = () => {
           <li>
             <Link to={"/"}>Accueil</Link>
           </li>
+          <li>
+            <Link to={"/pokemon"}>Pokemon</Link>
+          </li>
+          <li>
+            <Link to={"/type"}>Type</Link>
+          </li>
+          <li>
+            <Link to={"/random-pokemon"}>random pokemmon</Link>
+          </li>
+          <li>
+            <Link to={"/search-res"}>recherche pokemon</Link>
+          </li>
+          <li>
+            <Link to={"/fight"}>combat</Link>
+          </li>
         </ul>
 
         <form onSubmit={handleSubmitSearch}>
