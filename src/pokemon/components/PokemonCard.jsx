@@ -6,7 +6,7 @@ const PokemonCard = ({ pokemon }) => {
       <p>{pokemon.name}</p>
       <img width={"100px"} src={pokemon.image} alt={pokemon.name} />
       <br />
-      <Link to={"/pokemon/" + pokemon.idMeal}>Voir les pokemon</Link>
+      <Link to={"/pokemon/" + pokemon.id}>Voir les pokemon</Link>
     </article>
   );
 };

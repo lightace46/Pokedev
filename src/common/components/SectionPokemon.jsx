@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+import RandomTeam from "../hooks/RandomTeam";
+
 const SectionPokemon = () => {
   return (
     <section>
-      <p>6 pokemon</p>
+      <Link to={"/pokemon"}>Tous les pokemons</Link>
+      <RandomTeam />
     </section>
   );
 };

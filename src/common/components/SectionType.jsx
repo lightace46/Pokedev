@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+import RandomType from "../hooks/RandomType";
+
 const SectionType = () => {
   return (
     <section>
-      <p>6 Element</p>
+      <Link to={"/type"}>Tous les types</Link>
+      <RandomType />
     </section>
   );
 };
