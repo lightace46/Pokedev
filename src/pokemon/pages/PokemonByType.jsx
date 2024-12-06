@@ -2,24 +2,49 @@ import { useEffect, useState } from "react";
 import Footer from "../../common/components/Footer";
 import Header from "../../common/components/Header/Header";
 import PokemonCard from "../components/PokemonCard";
-import { Link } from "react-router-dom";
-import userGetPokemon from "../hooks/useGetPokemon";
+import { Link, useParams } from "react-router-dom";
 
 const ListPokemon = () => {
-  const generations = [1, 2, 3, 4, 5, 6, 7, 8];
+  const { type } = useParams();
 
-  const { pokemons, isLoading, fetchPokemonByGeneration } = userGetPokemon();
+  const [pokemons, setPokemon] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [pokeTypes, setPokeTypes] = useState([]);
+
+  useEffect(() => {
+    fetch("https://pokebuildapi.fr/api/v1/types")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setPokeTypes(data);
+      });
+  });
+
+  // Fonction pour fetch les Pokémon d'une génération
+  const fetchType = (type) => {
+    setIsLoading(true); // Active le chargement
+    fetch("https://pokebuildapi.fr/api/v1/pokemon/type/" + type)
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        setPokemon(data);
+        setIsLoading(false); // Désactive le chargement
+      });
+  };
+
+  useEffect(() => {
+    fetchType(type);
+  }, []);
 
   if (isLoading) {
     return (
       <>
         <Header />
-        {generations.map((gen) => (
-          <button key={gen} onClick={() => fetchPokemonByGeneration(gen)}>
-            Génération {gen}
-          </button>
-        ))}
-        <p>Choisir une génération !</p>
+        <p>En cours de chargement !</p>
         <Footer />
       </>
     );
@@ -30,11 +55,14 @@ const ListPokemon = () => {
       <Header />
 
       <main>
-        {generations.map((gen) => (
-          <button key={gen} onClick={() => fetchPokemonByGeneration(gen)}>
-            Génération {gen}
-          </button>
-        ))}
+        {/*pour faire les boutons */}
+        {pokeTypes.map((pokeType) => {
+          return (
+            <button onClick={() => fetchType(pokeType.name)}>
+              {pokeType.name}
+            </button>
+          );
+        })}
 
         <section>
           {pokemons.map((pokemon) => (

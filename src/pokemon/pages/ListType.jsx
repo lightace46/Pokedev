@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import Header from "../../common/components/Header";
+import Header from "../../common/components/Header/Header";
 import Footer from "../../common/components/Footer";
-import PokemonCard from "../components/PokemonCard";
 import TypeCard from "../components/TypeCard";
 
 const ListType = () => {

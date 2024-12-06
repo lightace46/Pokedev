@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import "./Header.css";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -6,7 +7,7 @@ const Header = () => {
   const handleSubmitSearch = (event) => {
     event.preventDefault();
     const query = event.target.query.value;
-    navigate("/SearchResultPage?query=" + query);
+    navigate("/search-res?query=" + query);
   };
 
   return (
@@ -23,10 +24,7 @@ const Header = () => {
             <Link to={"/type"}>Type</Link>
           </li>
           <li>
-            <Link to={"/random-pokemon"}>random pokemmon</Link>
-          </li>
-          <li>
-            <Link to={"/search-res"}>recherche pokemon</Link>
+            <Link to={"/random-pokemon"}>random pokemon</Link>
           </li>
           <li>
             <Link to={"/fight"}>combat</Link>

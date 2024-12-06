@@ -1,5 +1,5 @@
 import Footer from "../../common/components/Footer";
-import Header from "../../common/components/Header";
+import Header from "../../common/components/Header/Header";
 
 const FightPage = () => {
   return (

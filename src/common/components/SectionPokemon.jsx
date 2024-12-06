@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import RandomTeam from "../hooks/RandomTeam";
+import RandomTeam from "./RandomTeam";
 
 const SectionPokemon = () => {
   return (

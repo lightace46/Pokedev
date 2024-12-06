@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Header from "../../common/components/Header";
+import Header from "../../common/components/Header/Header";
 import Footer from "../../common/components/Footer";
 
 const ShowPokemon = () => {
@@ -35,27 +35,22 @@ const ShowPokemon = () => {
     <>
       <Header />
       <main>
-        <h1>{pokemon.name}</h1>
-        <img width={"100px"} src={pokemon.image} alt={pokemon.name} />
+        <article>
+          <h1>{pokemon.name}</h1>
+          <p>Génération {pokemon.apiGeneration}</p>
+          <img width={"100px"} src={pokemon.image} alt={pokemon.name} />
+          {pokemon.apiTypes.map((type) => {
+            return <img width={30} src={type.image} />;
+          })}
 
-        <p>Pays : {pokemon.strArea}</p>
-        <p>Catégorie : {pokemon.strCategory}</p>
-        <p>Instructions : </p>
-        <p>{pokemon.strInstructions}</p>
-
-        <h2>Ingrédients :</h2>
-        <ul>
-          {Object.keys(pokemon)
-            .filter((key) => key.includes("Ingredient") && pokemon[key])
-            .map((key) => {
-              return (
-                <li key={key}>
-                  {pokemon[key]} -{" "}
-                  {pokemon[key.replace("Ingredient", "Measure")]}
-                </li>
-              );
-            })}
-        </ul>
+          <h2>Stats</h2>
+          <p>HP : {pokemon.stats.HP}</p>
+          <p>atk : {pokemon.stats.attack}</p>
+          <p>def : {pokemon.stats.defense}</p>
+          <p>special atk : {pokemon.stats.special_attack}</p>
+          <p>special_def : {pokemon.stats.special_defense}</p>
+          <p>speed : {pokemon.stats.speed}</p>
+        </article>
       </main>
       <Footer />
     </>

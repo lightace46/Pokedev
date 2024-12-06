@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import RandomType from "../hooks/RandomType";
+import RandomType from "./RandomType";
 
 const SectionType = () => {
   return (

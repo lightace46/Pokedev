@@ -6,7 +6,7 @@ const TypeCard = ({ type }) => {
       <p>{type.name}</p>
       <img width={"100px"} src={type.image} alt={type.name} />
       <br />
-      <Link to={"/type/" + type.id}>Voir le types</Link>
+      <Link to={"/type/" + type.name}>Voir le types</Link>
     </article>
   );
 };
